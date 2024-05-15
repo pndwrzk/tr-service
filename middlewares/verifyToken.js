@@ -11,7 +11,7 @@ const verifyToken = (req, res, next) => {
       .json(
         dataRespone(message.error.status, null, message.error.unauthorized)
       );
-  jwt.verify(token, process.env.RAILWAY_PUBLIC_ACCESS_TOKEN_SECRET, (err) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err) => {
     if (err)
       res
         .status(401)
