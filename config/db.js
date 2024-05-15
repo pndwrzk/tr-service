@@ -1,13 +1,16 @@
 const mysql = require("mysql2");
 
 const pool = mysql.createPool({
-  host: process.env.RAILWAY_PUBLIC_DB_HOST,
-  user: process.env.RAILWAY_PUBLIC_DB_USERNAME,
-  password: process.env.RAILWAY_PUBLIC_DB_PASSWORD,
-  database: process.env.RAILWAY_PUBLIC_DB_NAME,
+  driver: "mysql",
+  host: "monorail.proxy.rlwy.net",
+  user: "root",
+  password: "MECvOhMsbEXhauHuSPNJvMThRpUJovVl",
+  database: "railway",
+  port: 12552,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
+console.log(pool);
 
 module.exports = pool.promise();

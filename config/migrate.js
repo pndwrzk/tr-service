@@ -1,13 +1,15 @@
 require("dotenv").config();
 const DbMigrate = require("db-migrate");
+
 const dbmigrate = DbMigrate.getInstance(true, {
   config: {
     dev: {
       driver: "mysql",
-      host: process.env.RAILWAY_PUBLIC_DB_HOST,
-      user: process.env.RAILWAY_PUBLIC_DB_USERNAME,
-      password: process.env.RAILWAY_PUBLIC_DB_PASSWORD,
-      database: process.env.RAILWAY_PUBLIC_DB_NAME,
+      host: "monorail.proxy.rlwy.net",
+      user: "root",
+      password: "MECvOhMsbEXhauHuSPNJvMThRpUJovVl",
+      database: "railway",
+      port: 12552,
     },
   },
 });
