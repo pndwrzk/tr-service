@@ -1,11 +1,13 @@
 const db = require("../config/db");
 
-const getAllCustomer = async () => {
+const getAllCustomer = async (pagging) => {
   try {
-    const [rows] = await db.execute("SELECT * FROM customer");
+    const [rows] = await db.execute(
+      `SELECT * FROM customer ORDER BY ${pagging.orderByClause} LIMIT ${pagging.pageSize} OFFSET ${pagging.offset}`
+    );
+
     return rows;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -17,7 +19,6 @@ const getCustomerByEmail = async (email) => {
     ]);
     return rows;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -29,7 +30,6 @@ const getCustomerById = async (id) => {
     ]);
     return rows;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };

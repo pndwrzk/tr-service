@@ -92,7 +92,7 @@ const update = async (req, res) => {
 
 const retriveAll = async (req, res) => {
   try {
-    const employess = await customerModel.getAllCustomer();
+    const employess = await customerModel.getAllCustomer(req.pagging);
     res
       .status(200)
       .json(
