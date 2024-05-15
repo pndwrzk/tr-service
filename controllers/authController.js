@@ -74,7 +74,7 @@ const refershAccessToken = async (req, res) => {
 
     const decoded = jwt.verify(
       req.body.refersh_token,
-      process.env.REFRESH_TOKEN_SECRET
+      process.env.RAILWAY_PUBLIC_REFRESH_TOKEN_SECRET
     );
 
     const userId = decoded.idUser;

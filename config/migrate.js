@@ -4,10 +4,10 @@ const dbmigrate = DbMigrate.getInstance(true, {
   config: {
     dev: {
       driver: "mysql",
-      host: process.env.DB_HOST,
-      user: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      host: process.env.RAILWAY_PUBLIC_DB_HOST,
+      user: process.env.RAILWAY_PUBLIC_DB_USERNAME,
+      password: process.env.RAILWAY_PUBLIC_DB_PASSWORD,
+      database: process.env.RAILWAY_PUBLIC_DB_NAME,
     },
   },
 });
