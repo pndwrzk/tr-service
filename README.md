@@ -2,7 +2,7 @@
 
 ```bash
   git clone https://github.com/pndwrzk/tr-service.git
-  cd my-project
+  cd tr-service
 ```
 
 ## config env
