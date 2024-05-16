@@ -19,6 +19,7 @@ apiRoute.get(
   customerController.retriveAll
 );
 apiRoute.post("/customer", verifyToken, customerController.create);
+apiRoute.delete("/customer/bulk", verifyToken, customerController.destroyBulk);
 apiRoute.delete("/customer/:id", verifyToken, customerController.destroy);
 apiRoute.get("/customer/:id", verifyToken, customerController.retrive);
 apiRoute.put("/customer/:id", verifyToken, customerController.update);

@@ -22,10 +22,14 @@ const addCustomerValidation = joi.object({
   phone_number: joi.string().required(),
   gender: joi.string().required(),
 });
+const deleteBulkCustomerValidation = joi.object({
+  id: joi.array().required(),
+});
 
 module.exports = {
   loginValidation,
   addUserValidation,
   refreshAccessTokenValidation,
   addCustomerValidation,
+  deleteBulkCustomerValidation,
 };

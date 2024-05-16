@@ -83,6 +83,18 @@ const deleteById = async (id) => {
   }
 };
 
+const deleteBulkById = async (idArray) => {
+  try {
+    const [result] = await db.execute("DELETE FROM customer WHERE id IN (?)", [
+      idArray,
+    ]);
+    console;
+    return result.affectedRows;
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   getAllCustomer,
   getCustomerByEmail,
@@ -90,4 +102,5 @@ module.exports = {
   saveCustomer,
   updateCustomerById,
   deleteById,
+  deleteBulkById,
 };

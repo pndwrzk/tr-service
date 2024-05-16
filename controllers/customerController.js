@@ -152,10 +152,45 @@ const destroy = async (req, res) => {
   }
 };
 
+const destroyBulk = async (req, res) => {
+  try {
+    const errorValidation =
+      schemaValidation.deleteBulkCustomerValidation.validate(req.body).error;
+    if (errorValidation) {
+      return res
+        .status(402)
+        .json(dataRespone(message.error.status, null, errorValidation.message));
+    }
+
+    const idCustomer = req.body.id;
+
+    const affectedRows = await customerModel.deleteBulkById(idCustomer);
+    if (affectedRows === 0) {
+      return res
+        .status(404)
+        .json(dataRespone(message.error.status, null, message.error.notFound));
+    }
+    return res
+      .status(200)
+      .json(
+        dataRespone(
+          message.success.status,
+          { id: idCustomer },
+          message.success.delete
+        )
+      );
+  } catch (error) {
+    return res
+      .status(500)
+      .json(dataRespone(message.error.status, null, error.message));
+  }
+};
+
 module.exports = {
   create,
   update,
   retrive,
   destroy,
   retriveAll,
+  destroyBulk,
 };
