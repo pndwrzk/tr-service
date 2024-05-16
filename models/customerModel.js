@@ -86,7 +86,7 @@ const deleteById = async (id) => {
 const deleteBulkById = async (idArray) => {
   try {
     const [result] = await db.execute("DELETE FROM customer WHERE id IN (?)", [
-      idArray,
+      idArray.toString(),
     ]);
     console;
     return result.affectedRows;
